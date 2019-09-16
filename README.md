@@ -130,3 +130,7 @@ Open `flake-report/index.html` to see linter output
 python manage.py test
 ```
 Open `test-report.xml` to see test output
+
+### API Documentation
+
+Swagger is running on `/swagger/`. If your port is 5000 then it's `localhost:5000/swagger/`
