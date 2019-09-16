@@ -5,3 +5,5 @@ gunicorn==19.9.0
 django-cors-headers==2.4.0
 honcho==1.0.1
 django-swagger-render==0.1.0
+djangorestframework==3.10.3
+django-rest-auth==0.9.5
