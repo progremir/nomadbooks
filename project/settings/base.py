@@ -18,6 +18,7 @@ ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -28,7 +29,11 @@ INSTALLED_APPS = [
     'swagger_render',
     'rest_framework',
     'rest_framework.authtoken',
-    'rest_auth'
+    'rest_auth',
+    'rest_auth.registration',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +85,12 @@ DATABASES = {
     }
 }
 
+# Authentication Backends
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -117,6 +128,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+# Email
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'    # TODO: switch it to the real one
+
 # CORS Configurations
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -148,6 +163,28 @@ CORS_ALLOW_HEADERS = (
 CORS_ALLOW_CREDENTIALS = True
 CORS_PREFLIGHT_MAX_AGE = 86400
 
+# Swagger
+
 SWAGGER_UI_INDEX_FILENAME = '/docs/index.yaml'
 DOCS_ROOT = 'docs'
 DOCS_URL = '/docs/'
+
+# Allauth
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+SITE_ID = 1
+
+# REST Framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication'
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
+    'DEFAULT_PAGINATION_CLASS': 'common.pagination.GeneralPagination',
+    'PAGE_SIZE': 20,
+}
