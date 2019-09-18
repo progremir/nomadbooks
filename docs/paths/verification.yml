@@ -1,0 +1,21 @@
+post:
+  tags:
+    - Auth
+  summary: Email Verification
+  parameters:
+    - in: body
+      name: verification
+      schema:
+        type: object
+        required:
+          - key
+        properties:
+          key:
+            type: string
+  responses:
+    200:
+      description: Successfully verified
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Message.yml'

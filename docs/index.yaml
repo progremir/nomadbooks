@@ -11,7 +11,14 @@ servers:
 paths:
   /auth/login/:
     $ref: 'paths/login.yml'
-  /auth/registration/:
-    $ref: 'paths/registration.yml'
   /auth/logout/:
     $ref: 'paths/logout.yml'
+  /auth/registration/:
+    $ref: 'paths/registration.yml'
+  /auth/registration/verify-email/:
+    $ref: 'paths/verification.yml'
+schemas:
+  Message:
+    $ref: 'schemas/Message.yml'
+  Token:
+    $ref: 'schemas/Token.yml'

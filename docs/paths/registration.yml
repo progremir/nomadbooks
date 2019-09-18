@@ -19,8 +19,8 @@ post:
           password2:
             type: string
   responses:
-    200:
-      description: Successful registration
+    201:
+      description: Successful registration. Email with verification link is sent to the user.
       content:
         application/json:
           schema:
