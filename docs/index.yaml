@@ -13,3 +13,5 @@ paths:
     $ref: 'paths/login.yml'
   /auth/registration/:
     $ref: 'paths/registration.yml'
+  /auth/logout/:
+    $ref: 'paths/logout.yml'

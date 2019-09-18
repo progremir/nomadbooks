@@ -1,0 +1,11 @@
+post:
+  tags:
+    - Auth
+  summary: Logout
+  responses:
+    200:
+      description: Successful logout
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Message.yml'
