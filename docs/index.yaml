@@ -11,4 +11,5 @@ servers:
 paths:
   /auth/login/:
     $ref: 'paths/login.yml'
-
+  /auth/registration/:
+    $ref: 'paths/registration.yml'

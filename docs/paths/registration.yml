@@ -1,0 +1,27 @@
+post:
+  tags:
+    - Auth
+  summary: Registration
+  parameters:
+    - in: body
+      name: registration
+      schema:
+        type: object
+        required:
+          - email
+          - password1
+          - password2
+        properties:
+          email:
+            type: string
+          password1:
+            type: string
+          password2:
+            type: string
+  responses:
+    200:
+      description: Successful registration
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Message.yml'
