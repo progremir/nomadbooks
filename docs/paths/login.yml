@@ -1,0 +1,24 @@
+post:
+  tags:
+    - Auth
+  summary: Login
+  parameters:
+    - in: body
+      name: login
+      schema:
+        type: object
+        required:
+          - email
+          - password
+        properties:
+          email:
+            type: string
+          password:
+            type: string
+  responses:
+    200:
+      description: Successful login
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Token.yml'

@@ -2,3 +2,13 @@ openapi: 3.0.0
 info:
   version: 0.0.0
   title: API for NomadBooks
+servers:
+  - url: http://localhost:{port}/api/v1
+    description: Local
+    variables:
+      port:
+        default: '5000'
+paths:
+  /auth/login/:
+    $ref: 'paths/login.yml'
+

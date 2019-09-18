@@ -165,7 +165,7 @@ CORS_PREFLIGHT_MAX_AGE = 86400
 
 # Swagger
 
-SWAGGER_UI_INDEX_FILENAME = '/docs/index.yaml'
+SWAGGER_YAML_FILENAME = '/docs/index.yaml'
 DOCS_ROOT = 'docs'
 DOCS_URL = '/docs/'
 
