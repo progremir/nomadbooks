@@ -10,7 +10,7 @@ before_install:
 jobs:
   include:
     - stage: test
-      script: docker-compose -f docker-compose-tests.yml up --build --exit-code-from app
+      script: /usr/local/bin/docker-compose -f docker-compose-tests.yml up --build --exit-code-from app
     - stage: deploy
       deploy:
         on:
