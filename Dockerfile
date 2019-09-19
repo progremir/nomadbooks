@@ -25,7 +25,7 @@ COPY . .
 
 EXPOSE 5000
 ENTRYPOINT [ "/app/scripts/entrypoint.sh" ]
-CMD gunicorn -b 0.0.0.0:5000 --workers=$GUNICORN_WORKERS project.wsgi
+CMD gunicorn -b 0.0.0.0:$PORT --workers=3 project.wsgi
 
 FROM prod as dev
 RUN pip install --no-cache-dir -r requirements/dev.txt
