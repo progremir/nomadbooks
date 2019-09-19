@@ -2,7 +2,7 @@ services:
   - docker
 
 env:
-  - DOCKER_COMPOSE_VERSION=1.22.0
+  - DOCKER_COMPOSE_VERSION=1.23.2
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -13,7 +13,7 @@ before_install:
 jobs:
   include:
     - stage: test
-      script: UID=root docker-compose -f docker-compose-tests.yml up
+      script: docker-compose -f docker-compose-tests.yml up
         --no-color
         --renew-anon-volumes
         --abort-on-container-exit
