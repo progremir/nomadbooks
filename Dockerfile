@@ -25,7 +25,7 @@ COPY . .
 
 EXPOSE $PORT
 ENTRYPOINT [ "/app/scripts/entrypoint.sh" ]
-CMD gunicorn -b 0.0.0.0:$PORT --workers=$GUNICORN_WORKERS project.wsgi
+CMD gunicorn -b 0.0.0.0:$PORT --workers=3 project.wsgi
 
 FROM prod as dev
 RUN pip install --no-cache-dir -r requirements/dev.txt
