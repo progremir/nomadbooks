@@ -24,7 +24,7 @@ RUN apk update \
 COPY . .
 
 ENTRYPOINT [ "/app/scripts/entrypoint.sh" ]
-CMD gunicorn -b 0.0.0.0:$PORT --workers=$GUNICORN_WORKERS project.wsgi
+CMD gunicorn -b 0.0.0.0:$PORT --workers=3 project.wsgi
 EXPOSE $PORT
 
 FROM prod as dev
