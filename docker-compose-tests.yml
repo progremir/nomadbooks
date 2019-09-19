@@ -12,7 +12,6 @@ services:
       - ALLOWED_HOSTS=*
       - DATABASE_URL=postgres://postgres:postgres@postgres:5432/nomadbooks
       - FRONT_URL=https://nombadbooks.io
-    user: "${UID:?You must do 'export UID' to launch}"
     volumes:
       - ./:/code
     working_dir: /code
