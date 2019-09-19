@@ -15,7 +15,6 @@ services:
     volumes:
       - ./:/code
     working_dir: /code
-    entrypoint: ""
     command: /app/scripts/run_tests.sh
   postgres:
     image: postgres:10.6
