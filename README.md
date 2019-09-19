@@ -18,11 +18,7 @@
 | DEBUG                 | true                 | Flag that turns on debug mode. `true` or `false`   |
 | DJANGO_SETTINGS_MODULE| project.settings.base| Name of the settings module                        |
 | ALLOWED_HOSTS         | *                    | List of allowed hosts, separated by comma(,)       |
-| POSTGRES_DB           | nomadbooks           | PostgresQL Database Name                           |
-| POSTGRES_PASSWORD     | postgres             | PostgresQL  User's password                        |
-| POSTGRES_USER         | postgres             | PostgresQL  User's username                        |
-| POSTGRES_HOST         | postgres             | Name of the host                                   |
-| POSTGRES_PORT         | 5432                 | Port of the connection                             |
+| DATABASE_URL          | postgres://postgres:postgres@localhost:5432/nomadbooks           | Database connection URI                           |
 | FRONT_URL             | http://localhost:8080| URL of the front-end application                   |
 
 ### Running with Docker

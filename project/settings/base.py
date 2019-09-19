@@ -1,5 +1,5 @@
-import json
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from distutils.util import strtobool
@@ -76,15 +76,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['POSTGRES_DB'],
-        'PASSWORD': os.environ['POSTGRES_PASSWORD'],
-        'USER': os.environ['POSTGRES_USER'],
-        'HOST': os.environ['POSTGRES_HOST'],
-        'PORT': os.environ['POSTGRES_PORT'],
-        'OPTIONS': json.loads(os.environ.get('POSTGRES_OPTIONS', "{}")),
-    }
+    'default': dj_database_url.config(default=os.environ['DATABASE_URL'])
 }
 
 # Authentication Backends
