@@ -4,7 +4,7 @@ services:
   - docker
 
 env:
-  - DOCKER_COMPOSE_VERSION=2.4
+  - DOCKER_COMPOSE_VERSION=1.22.0
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -15,6 +15,7 @@ before_install:
 script:
   - docker version
   - docker-compose version
+  - echo $HEROKU_APP_NAME
 #jobs:
 #  include:
 #    - stage: test
