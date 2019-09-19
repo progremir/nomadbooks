@@ -7,3 +7,4 @@ honcho==1.0.1
 django-swagger-render==0.1.0
 djangorestframework==3.10.3
 django-rest-auth==0.9.5
+django-allauth==0.40.0

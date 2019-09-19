@@ -20,6 +20,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_HOST=postgres
       - POSTGRES_PORT=5432
+      - FRONT_URL=https://nombadbooks.io
     ports:
       - "5000:5000"
   postgres:

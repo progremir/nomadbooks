@@ -15,6 +15,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_HOST=postgres
       - POSTGRES_PORT=5432
+      - FRONT_URL=https://nombadbooks.io
     user: "${UID:?You must do 'export UID' to launch}"
     volumes:
       - ./:/code
