@@ -1,3 +1,5 @@
+sudo: required
+
 services:
   - docker
 
@@ -10,15 +12,18 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 
-jobs:
-  include:
-    - stage: test
-      script: docker-compose -f docker-compose-tests.yml up --build --exit-code-from app
-    - stage: deploy
-      deploy:
-        on:
-          branch: master
-        provider: heroku
-        api_key:
-          secure: $HEROKU_API_KEY
-        app: $HEROKU_APP_NAME
+script:
+  - docker version
+  - docker-compose version
+#jobs:
+#  include:
+#    - stage: test
+#      script: docker-compose -f docker-compose-tests.yml up --build --exit-code-from app
+#    - stage: deploy
+#      deploy:
+#        on:
+#          branch: master
+#        provider: heroku
+#        api_key:
+#          secure: $HEROKU_API_KEY
+#        app: $HEROKU_APP_NAME
