@@ -1,5 +1,6 @@
 FROM python:3.7-alpine3.10 as prod
 ENV PYTHONUNBUFFERED 1
+ARG PORT
 
 WORKDIR /app
 
