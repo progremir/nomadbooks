@@ -10,11 +10,7 @@ services:
       - DEBUG=true
       - DJANGO_SETTINGS_MODULE=project.settings.test
       - ALLOWED_HOSTS=*
-      - POSTGRES_DB=nomadbooks
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_HOST=postgres
-      - POSTGRES_PORT=5432
+      - DATABASE_URL=postgres://postgres:postgres@postgres:5432/nomadbooks
       - FRONT_URL=https://nombadbooks.io
     user: "${UID:?You must do 'export UID' to launch}"
     volumes:
