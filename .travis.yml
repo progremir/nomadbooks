@@ -13,8 +13,7 @@ before_install:
 jobs:
   include:
     - stage: test
-      script: docker-compose up
-        --build
+      script: docker-compose up -f docker-compose-test.yml
         --no-color
         --renew-anon-volumes
         --abort-on-container-exit
