@@ -20,7 +20,7 @@ jobs:
     deploy:
       provider: heroku
       api_key:
-        secure: NX5lVU1AaKFQswS5PLWekfV0CeF0R
+        secure: "d/5Xg4R4x5FLHyc0UZed646T6sN8RmkMTjyshw/oZpvrYNa6SNJwuyLBs8XoqsqyP5diov5NN6rJE9mYgVny7xNiEPOCdhGl69YcaCREiPBBdn9L6HgMNelJY460oz1e2CxQv2MmHiz5GS+i4cq+UoFQDovk1fYM5lTymrNf5Pif85KWwoDEHwmX1laheFFiPVu3KxLwv1E2pbL2+l5K4YH3DIf0QiKmcesrXi1S6aCW2zDb5+QLknkNUh+aAy0dNolZGMk8+u8YPzwpbFOoE7cieFhUvYMlZHKRizExa6N3yhh3IGvFso1NGwKdVXN38q9YYAYlSLMr6j58rxLb+TD39I1iEwAewOt/M50wGSaCe7Dfli7JBXowXn01FX59U3On3SucclJ3v6uCFcJUtKAdziJEcaOfBG5010JhEhGMI6+jrNn7Uv4aMfgvoVjIkAqVbR/nLQMTQEYYUsVdtEZaNWoLDdJ2EUtbYvDeX5dJL5Ck5tyJ3qqGImWHnbrFjtJl+EzlneFSCCvG0n/IStTmJE643dTkt5TiRJ/SU9210c1tdo4hcxH6Cfgb3hZl1NWH9V9H3gDR+JAb7Eoy2+jD5BftyzHjW8AsoBYjwEXHMj58oq48yalEVkQKd7vUXfJQNThLDzDlwNJbDdWGkkY1AYJNWJvD9PtVQz2Vwuk="
       app: nomadbooks
       on:
         repo: progremir/nomadbooks
