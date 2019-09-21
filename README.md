@@ -2,7 +2,6 @@
 
 # NomadBooks
 
-
 ## Getting Started
 
 ### Prerequisites
