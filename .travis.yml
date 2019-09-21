@@ -4,11 +4,6 @@ services:
 env:
   - DOCKER_COMPOSE_VERSION=1.23.2
 
-stages:
-  - test
-  - name: deploy
-    if: branch = master
-
 jobs:
   include:
     - stage: test
@@ -22,7 +17,11 @@ jobs:
         --renew-anon-volumes
         --abort-on-container-exit
         --exit-code-from django
+      branches:
+        except:
+          - master
     - stage: deploy
+      if: (NOT type IN (pull_request)) AND (branch = master)
       deploy:
         provider: heroku
         api_key:
