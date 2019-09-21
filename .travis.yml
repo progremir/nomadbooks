@@ -10,6 +10,11 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 
+stages:
+  - test
+  - name: deploy
+    if: branch = master
+
 jobs:
   include:
     - stage: test
@@ -20,8 +25,6 @@ jobs:
         --exit-code-from django
     - stage: deploy
       deploy:
-        on:
-          branch: master
         provider: heroku
         api_key:
           secure: $HEROKU_API_KEY
