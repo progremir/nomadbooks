@@ -7,6 +7,7 @@ env:
 jobs:
   include:
     - stage: test
+      if: branch != master
       install:
         - sudo rm /usr/local/bin/docker-compose
         - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
@@ -24,3 +25,5 @@ jobs:
         api_key:
           secure: $HEROKU_API_KEY
         app: $HEROKU_APP_NAME
+        on:
+          repo: progremir/nomadbooks
