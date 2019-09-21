@@ -1,29 +1,25 @@
 services:
-  - docker
-
+- docker
 env:
-  - DOCKER_COMPOSE_VERSION=1.23.2
-
+- DOCKER_COMPOSE_VERSION=1.23.2
 jobs:
   include:
-    - stage: test
-      if: branch != master
-      install:
-        - sudo rm /usr/local/bin/docker-compose
-        - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-        - chmod +x docker-compose
-        - sudo mv docker-compose /usr/local/bin
-      script: docker-compose -f docker-compose-test.yml up
-        --no-color
-        --renew-anon-volumes
-        --abort-on-container-exit
-        --exit-code-from django
-    - stage: deploy
-      if: (NOT type IN (pull_request)) AND (branch = master)
-      deploy:
-        provider: heroku
-        api_key:
-          secure: $HEROKU_API_KEY
-        app: $HEROKU_APP_NAME
-        on:
-          repo: progremir/nomadbooks
+  - stage: test
+    if: branch != master
+    install:
+    - sudo rm /usr/local/bin/docker-compose
+    - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname
+      -s`-`uname -m` > docker-compose
+    - chmod +x docker-compose
+    - sudo mv docker-compose /usr/local/bin
+    script: docker-compose -f docker-compose-test.yml up --no-color --renew-anon-volumes
+      --abort-on-container-exit --exit-code-from django
+  - stage: deploy
+    if: "(NOT type IN (pull_request)) AND (branch = master)"
+    deploy:
+      provider: heroku
+      api_key:
+        secure: NX5lVU1AaKFQswS5PLWekfV0CeF0R
+      app: nomadbooks
+      on:
+        repo: progremir/nomadbooks
