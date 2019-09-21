@@ -28,5 +28,3 @@ services:
       - POSTGRES_DB=nomadbooks
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
-    ports:
-      - "5432:5432"
