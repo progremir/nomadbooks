@@ -13,11 +13,11 @@ before_install:
 jobs:
   include:
     - stage: test
-      script: docker-compose -f docker-compose-tests.yml up
+      script: docker-compose up
         --no-color
         --renew-anon-volumes
         --abort-on-container-exit
-        --exit-code-from app
+        --exit-code-from django
     - stage: deploy
       deploy:
         on:

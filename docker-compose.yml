@@ -4,7 +4,7 @@ services:
   django:
     build:
       context: .
-      target: prod
+      target: dev
     restart: always
     container_name: nomadbooks_django
     image: django
@@ -17,6 +17,7 @@ services:
       - ALLOWED_HOSTS=*
       - DATABASE_URL=postgres://postgres:postgres@postgres:5432/nomadbooks
       - FRONT_URL=https://nombadbooks.io
+    command: /app/scripts/run_tests.sh
     ports:
       - "5000:5000"
   postgres:
