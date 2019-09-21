@@ -1,4 +1,7 @@
+[![Build Status](https://travis-ci.com/progremir/nomadbooks.svg?token=fywMsTPcnkWZ7cZppNQo&branch=master)](https://travis-ci.com/progremir/nomadbooks)
+
 # NomadBooks
+
 
 ## Getting Started
 
