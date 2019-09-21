@@ -1,26 +1,28 @@
 version: "2.4"
+
 services:
-  app:
+  django:
     build:
       context: .
-      args:
-        PORT: 5000
+    container_name: nomadbooks_django
     depends_on:
       - postgres
     environment:
       - SECRET_KEY=notasecret
       - DEBUG=true
-      - DJANGO_SETTINGS_MODULE=project.settings.test
+      - DJANGO_SETTINGS_MODULE=project.settings.base
       - ALLOWED_HOSTS=*
       - DATABASE_URL=postgres://postgres:postgres@postgres:5432/nomadbooks
       - FRONT_URL=https://nombadbooks.io
-    volumes:
-      - ./:/code
-    working_dir: /code
-    command: /app/scripts/run_tests.sh
+    command: /app/manage.py runserver 0.0.0.0:5000
+    ports:
+      - "5000:5000"
   postgres:
     image: postgres:10.6
+    container_name: nomadbooks_postgres
     environment:
       - POSTGRES_DB=nomadbooks
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
+    ports:
+      - "5432:5432"
