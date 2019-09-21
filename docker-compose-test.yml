@@ -1,8 +1,11 @@
 version: "2.4"
+
 services:
-  app:
+  django:
     build:
       context: .
+      target: dev
+    restart: always
     depends_on:
       - postgres
     environment:
@@ -10,18 +13,11 @@ services:
       - DEBUG=true
       - DJANGO_SETTINGS_MODULE=project.settings.test
       - ALLOWED_HOSTS=*
-      - POSTGRES_DB=nomadbooks
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_HOST=postgres
-      - POSTGRES_PORT=5432
-    user: "${UID:?You must do 'export UID' to launch}"
-    volumes:
-      - ./:/code
-    working_dir: /code
-    entrypoint: ""
+      - DATABASE_URL=postgres://postgres:postgres@postgres:5432/nomadbooks
+      - FRONT_URL=https://nombadbooks.io
     command: /app/scripts/run_tests.sh
   postgres:
+    restart: always
     image: postgres:10.6
     environment:
       - POSTGRES_DB=nomadbooks

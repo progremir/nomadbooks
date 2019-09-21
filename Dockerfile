@@ -1,5 +1,6 @@
 FROM python:3.7-alpine3.10 as prod
 ENV PYTHONUNBUFFERED 1
+ARG PORT=5000
 
 WORKDIR /app
 
@@ -23,9 +24,8 @@ RUN apk update \
 
 COPY . .
 
-EXPOSE 5000
 ENTRYPOINT [ "/app/scripts/entrypoint.sh" ]
-CMD gunicorn -b 0.0.0.0:5000 --workers=$GUNICORN_WORKERS project.wsgi
+EXPOSE $PORT
 
 FROM prod as dev
 RUN pip install --no-cache-dir -r requirements/dev.txt
