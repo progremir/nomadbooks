@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -127,7 +128,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Email
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'    # TODO: switch it to the real one
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # CORS Configurations
 
@@ -197,3 +198,14 @@ AWS_S3_OBJECT_PARAMETERS = {
 }
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_S3_REGION_NAME = 'ap-south-1'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# SendGrid
+SENDGRID_API_KEY = os.environ['SENDGRID_API_KEY']
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

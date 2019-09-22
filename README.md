@@ -25,6 +25,7 @@
 | AWS_ACCESS_KEY_ID     |                 | AWS Key ID                                         |
 | AWS_SECRET_ACCESS_KEY |                 | AWS Access Key                                     |
 | AWS_STORAGE_BUCKET_NAME|                 | S3 bucket name                                   |
+| SENDGRID_API_KEY|                 | SendGrid API Key                                  |
 ### Running with Docker
 
 Declare environment variables. You can find this information in **ENVIRONMENT VARIABLES** section.
