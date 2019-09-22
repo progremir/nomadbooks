@@ -1,6 +1,17 @@
+import uuid
+
 from django.db import models
+from django.contrib.auth import get_user_model
 
 from common.models import TimestampModel
+
+User = get_user_model()
+
+
+def upload_to(_, filename):
+    ext = filename.split('.')[-1]
+    filename = f'{uuid.uuid4()}.{ext}'
+    return f'/covers/{filename}'
 
 
 class Category(TimestampModel):
@@ -23,3 +34,16 @@ class Author(TimestampModel):
 
     def __str__(self):
         return self.name
+
+
+class Book(TimestampModel):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    categories = models.ManyToManyField(Category)
+    authors = models.ManyToManyField(Author)
+    read_by = models.ManyToManyField(User)
+    cover = models.ImageField(upload_to=upload_to)
+
+    class Meta:
+        ordering = ('title',)
+        default_related_name = 'books'
