@@ -17,6 +17,8 @@ paths:
     $ref: 'paths/registration.yml'
   /auth/registration/verify-email/:
     $ref: 'paths/verification.yml'
+  /categories/:
+    $ref: 'paths/categories.yml'
 schemas:
   Message:
     $ref: 'schemas/Message.yml'
