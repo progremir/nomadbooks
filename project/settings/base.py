@@ -162,8 +162,8 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_PREFLIGHT_MAX_AGE = 86400
 
 # Swagger
-
-SWAGGER_YAML_FILENAME = '/docs/index.yaml'
+# Make it /docs/index.yaml in DEBUG=True for hot-reloading
+SWAGGER_YAML_FILENAME = '/static/docs/index.yaml'
 DOCS_ROOT = 'docs'
 DOCS_URL = '/docs/'
 
@@ -209,3 +209,7 @@ EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+STATICFILES_DIRS = (
+    ('docs', os.path.join(BASE_DIR, 'docs')),
+)
