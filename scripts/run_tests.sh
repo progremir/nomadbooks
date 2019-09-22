@@ -2,5 +2,4 @@
 
 set -o errexit
 
-coverage run --source='.' manage.py test
-coverage html
+python /app/manage.py test
