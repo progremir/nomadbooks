@@ -7,7 +7,8 @@ from django.conf import settings
 from swagger_render.views import SwaggerUIView
 
 v1 = ([
-            path('auth/', include('users.urls'))
+            path('auth/', include('users.urls')),
+            path('', include('core.urls'))
       ], 'v1')
 
 urlpatterns = [
