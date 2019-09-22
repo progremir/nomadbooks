@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/progremir/nomadbooks.svg?token=fywMsTPcnkWZ7cZppNQo&branch=master)](https://travis-ci.com/progremir/nomadbooks)
 
-# NomadBooks
+![book](https://user-images.githubusercontent.com/17231674/65391212-687faf80-dd88-11e9-9741-040460668040.png)
 
 ## Getting Started
 
@@ -22,7 +22,9 @@
 | ALLOWED_HOSTS         | *                    | List of allowed hosts, separated by comma(,)       |
 | DATABASE_URL          | postgres://postgres:postgres@localhost:5432/nomadbooks           | Database connection URI                           |
 | FRONT_URL             | http://localhost:8080| URL of the front-end application                   |
-
+| AWS_ACCESS_KEY_ID     |                 | AWS Key ID                                         |
+| AWS_SECRET_ACCESS_KEY |                 | AWS Access Key                                     |
+| AWS_STORAGE_BUCKET_NAME|                 | S3 bucket name                                   |
 ### Running with Docker
 
 Declare environment variables. You can find this information in **ENVIRONMENT VARIABLES** section.
