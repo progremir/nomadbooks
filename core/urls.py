@@ -5,7 +5,6 @@ from core.views import CategoryViewSet
 
 router = routers.DefaultRouter()
 router.register('categories', CategoryViewSet)
-app_name = 'core'
 
 urlpatterns = [
     path('', include(router.urls))
