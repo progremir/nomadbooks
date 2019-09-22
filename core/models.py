@@ -47,3 +47,14 @@ class Book(TimestampModel):
     class Meta:
         ordering = ('title',)
         default_related_name = 'books'
+
+
+class Review(TimestampModel):
+    rating = models.PositiveSmallIntegerField()
+    review = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ('-created_at',)
+        default_related_name = 'reviews'
