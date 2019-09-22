@@ -9,6 +9,7 @@ class Category(TimestampModel):
 
     class Meta:
         verbose_name_plural = 'categories'
+        ordering = ('name',)
 
     def __str__(self):
         return self.name
@@ -16,6 +17,9 @@ class Category(TimestampModel):
 
 class Author(TimestampModel):
     name = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ('name',)
 
     def __str__(self):
         return self.name
