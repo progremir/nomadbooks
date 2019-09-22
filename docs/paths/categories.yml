@@ -1,0 +1,56 @@
+post:
+  tags:
+    - Books
+  summary: Category Creation
+  parameters:
+    - in: body
+      schema:
+        type: object
+        required:
+          - name
+          - description
+        properties:
+          name:
+            type: string
+          description:
+            type: string
+  responses:
+    201:
+      description: Successfully created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              description:
+                type: string
+get:
+  tags:
+    - Books
+  summary: Category List
+  responses:
+    201:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              total_count:
+                type: integer
+              total_pages:
+                type: integer
+              list:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    description:
+                      type: string
