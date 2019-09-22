@@ -17,6 +17,9 @@ services:
       - ALLOWED_HOSTS=*
       - DATABASE_URL=postgres://postgres:postgres@postgres:5432/nomadbooks
       - FRONT_URL=https://nombadbooks.io
+      - AWS_ACCESS_KEY_ID=access_key_id
+      - AWS_SECRET_ACCESS_KEY=secret_access_key
+      - AWS_STORAGE_BUCKET_NAME=bucket_name
     command: /app/scripts/run_tests.sh
   postgres:
     restart: always

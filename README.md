@@ -22,7 +22,9 @@
 | ALLOWED_HOSTS         | *                    | List of allowed hosts, separated by comma(,)       |
 | DATABASE_URL          | postgres://postgres:postgres@localhost:5432/nomadbooks           | Database connection URI                           |
 | FRONT_URL             | http://localhost:8080| URL of the front-end application                   |
-
+| AWS_ACCESS_KEY_ID     |                 | AWS Key ID                                         |
+| AWS_SECRET_ACCESS_KEY |                 | AWS Access Key                                     |
+| AWS_STORAGE_BUCKET_NAME|                 | S3 bucket name                                   |
 ### Running with Docker
 
 Declare environment variables. You can find this information in **ENVIRONMENT VARIABLES** section.
